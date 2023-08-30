@@ -22,7 +22,7 @@ func getEnvFile() string {
 	}
 
 	envFile := WorkingDirectory + Path
-	fmt.Printf("[envLoader] -> Loading from %s", envFile)
+	fmt.Printf("[envLoader] -> reading from %s\n", envFile)
 	_, err := os.Stat(envFile)
 	if err != nil {
 		panic(err)
