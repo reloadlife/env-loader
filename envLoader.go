@@ -39,6 +39,12 @@ func Load() {
 	fileContent := getEnvFile()
 	environments := strings.Split(fileContent, "\n")
 	for _, env := range environments {
+		if strings.HasPrefix(env, "#") {
+			continue
+		}
+		if !strings.Contains(env, "=") {
+			continue
+		}
 		if env != "" {
 			e := strings.Split(env, "=")
 			if err := os.Setenv(e[0], e[1]); err != nil {
